@@ -3,6 +3,7 @@ package com.euris.SimoneCopettiExam.services.impl;
 import com.euris.SimoneCopettiExam.models.Rooms;
 import com.euris.SimoneCopettiExam.models.Tickets;
 import com.euris.SimoneCopettiExam.repositories.RoomsRepository;
+import com.euris.SimoneCopettiExam.repositories.SpectatorsRepository;
 import com.euris.SimoneCopettiExam.repositories.TicketsRepository;
 import com.euris.SimoneCopettiExam.services.IRoomsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,8 @@ public class RoomsService implements IRoomsService {
 
     @Autowired
     private RoomsRepository roomsRepository;
+    @Autowired
+    private SpectatorsRepository spectatorsRepository;
 
 
     @Override
@@ -57,5 +60,11 @@ public class RoomsService implements IRoomsService {
 
         roomsRepository.deleteAll();
     }
+
+
+ //  public Double totalAmount(){
+  //      spectatorsRepository.get
+  // }
+
 
 }
