@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="table-films" author="simo">
+        <comment>CREAZIONE TABELLA FILMS</comment>
+        <createTable tableName="films">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="pk_films"/>
+            </column>
+            <column name="title" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="author" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="length" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="genre" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="idRooms" type="BIGINT"/>
+
+
+
+
+        </createTable>
+        <rollback><dropTable tableName="films"/></rollback>
+
+    </changeSet>
+
+</databaseChangeLog>

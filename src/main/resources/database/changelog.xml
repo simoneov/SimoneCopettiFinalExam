@@ -4,9 +4,9 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-  <include file="/database/changelogs/table-arbitri.xml"/>
-  <include file="/database/changelogs/table-squadre.xml"/>
-  <include file="/database/changelogs/table-calciatori.xml"/>
-  <include file="/database/changelogs/table-users.xml"/>
+  <include file="/database/changelogs/table-spectators.xml"/>
+  <include file="/database/changelogs/table-tickets.xml"/>
+  <include file="/database/changelogs/table-films.xml"/>
+  <include file="/database/changelogs/table-rooms.xml"/>
 
 </databaseChangeLog>

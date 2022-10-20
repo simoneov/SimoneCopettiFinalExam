@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="table-tickets" author="simo">
+        <comment>CREAZIONE TABELLA TICKETS</comment>
+        <createTable tableName="tickets">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="pk_tickets"/>
+            </column>
+            <column name="position" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+
+
+            <column name="price" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+
+
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="idTickets"
+                                 baseTableName="spectators"
+                                 constraintName="fk_spectators_tickets"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tickets"/>
+
+
+
+
+
+
+        <rollback><dropTable tableName="tickets"/></rollback>
+    </changeSet>
+
+</databaseChangeLog>

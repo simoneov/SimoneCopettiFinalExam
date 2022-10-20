@@ -1,25 +1,22 @@
 package com.euris.SimoneCopettiExam.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
-@Table(name = "spectators")
+@Table(name = "rooms")
 @Entity
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Spectators {
+public class Rooms {
 
     @Column
     @Id
@@ -27,23 +24,16 @@ public class Spectators {
     private Long id;
 
     @Column
-    private String name;
+    private Integer seats;
 
-    @Column
-    private String surname;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "rooms")
+    @JsonManagedReference(value = "idRooms")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private List<Spectators> spectators;
 
-    @Column
-    private LocalDateTime birthdate;
-
-    @OneToOne(mappedBy = "spectators")
-    private Tickets tickets;
-
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idRooms")
-    @JsonBackReference(value = "idRooms")
-    private Rooms rooms;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idRooms", referencedColumnName = "id")
+    private Films films;
 
 
 }
-

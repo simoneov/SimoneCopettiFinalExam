@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="table-rooms" author="simo">
+        <comment>CREAZIONE TABELLA ROOMS</comment>
+        <createTable tableName="rooms">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="pk_rooms"/>
+            </column>
+            <column name="seats" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+
+
+
+        <addForeignKeyConstraint baseColumnNames="idRooms"
+                                 baseTableName="films"
+                                 constraintName="fk_films_rooms"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rooms"/>
+
+        <addForeignKeyConstraint baseColumnNames="idRooms"
+                                 baseTableName="spectators"
+                                 constraintName="fk_spectators_rooms"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rooms"/>
+
+        <rollback><dropTable tableName="rooms"/></rollback>
+    </changeSet>
+
+</databaseChangeLog>

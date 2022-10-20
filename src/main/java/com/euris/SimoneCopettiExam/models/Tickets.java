@@ -1,5 +1,6 @@
 package com.euris.SimoneCopettiExam.models;
 
+import com.euris.SimoneCopettiExam.dtos.tickets.TicketsDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,11 +24,18 @@ public class Tickets {
     private String position;
 
     @Column
-    private Integer price;
+    private Double price;
 
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idTickets", referencedColumnName = "id")
-    private Spectators spectator;
+    private Spectators spectators;
 
+    public TicketsDto toDto() {
+        return TicketsDto.builder()
+                .id(this.getId())
+                .position(this.position)
+                .price(this.price)
+                .build();
+    }
 }
