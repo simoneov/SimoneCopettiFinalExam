@@ -1,6 +1,8 @@
 package com.euris.SimoneCopettiExam.services;
 
+import com.euris.SimoneCopettiExam.dtos.films.FilmsDto;
 import com.euris.SimoneCopettiExam.dtos.tickets.TicketsPostRequest;
+import com.euris.SimoneCopettiExam.models.Spectators;
 import com.euris.SimoneCopettiExam.models.Tickets;
 import com.euris.SimoneCopettiExam.repositories.TicketsRepository;
 import com.euris.SimoneCopettiExam.services.impl.TicketsService;
@@ -30,6 +32,11 @@ public class TicketsServiceTests {
     @InjectMocks
     private TicketsService ticketsService;
 
+ //  @BeforeEach
+ //  public void init(){
+
+ //  }
+
     @Test
     public void insertATicketWorksTest() {
         TicketsPostRequest ticket = TicketsPostRequest.builder()
@@ -43,17 +50,19 @@ public class TicketsServiceTests {
     }
 
 
-  //  @Test
-  //  public void getATicketWorksTest() {
-  //      TicketsPostRequest ticket = TicketsPostRequest.builder()
-  //              .position("3c")
-  //              .price(33.3).build();
-  //      Mockito.when(ticketsRepository.save(Mockito.any(Tickets.class))).thenReturn(new Tickets());
-  //      Tickets created = ticketsService.save(ticket.toModel());
-  //      Assertions.assertEquals("3c", created.getPosition());
-  //      Assertions.assertEquals(33.3, created.getPrice());
+// @Test
+// public void getATicketWorksTest() {
+//     TicketsPostRequest ticket = TicketsPostRequest.builder()
+//             .position("3c")
+//             .price(33.3).build();
+//     Mockito.when(ticketsRepository.save(Mockito.any(Tickets.class))).thenReturn(new Tickets());
 //
-  //  }
+//     Mockito.when(ticketsRepository.findById(Mockito.anyLong())).thenReturn(Optional.class);
+//     Tickets created = ticketsService.save(ticket.toModel());
+//     Assertions.assertEquals("3c", created.getPosition());
+//     Assertions.assertEquals(33.3, created.getPrice());
+//
+// }
 
 
 

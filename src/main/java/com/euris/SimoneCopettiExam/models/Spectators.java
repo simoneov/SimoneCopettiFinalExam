@@ -38,6 +38,9 @@ public class Spectators {
     @OneToOne(mappedBy = "spectators")
     private Tickets tickets;
 
+    public int age(){
+      return  (LocalDateTime.now().getYear())-(birthdate.getYear());
+    }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idRooms")
